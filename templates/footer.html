@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+
+	<div class="container">
+		<footer class="bg-dark text-center text-white">
+			<div class="container p-4 pb-0">
+			  <section class="mb-4">
+				<!-- Facebook -->
+				<a class="btn btn-primary btn-floating m-1 rounded-circle" style="background-color: #3b5998;" href="https://www.facebook.com/search/top?q=weather%20forecast" role="button"><i class="fab fa-facebook-f"></i></a>
+				<!-- Google -->
+				<a class="btn btn-primary btn-floating m-1 rounded-circle" style="background-color: #1c7ab9;" href="" role="button"><i class="fab fa-telegram"></i></a>
+				<!-- Instagram -->
+				<a class="btn btn-primary btn-floating m-1 rounded-circle" style="background-color: #a1133e;" href="https://www.instagram.com/weather_live/" role="button"><i class="fab fa-instagram"></i></a>
+				<!-- Linkedin -->
+				<a class="btn btn-primary btn-floating m-1 rounded-circle" style="background-color: #195eb9;" href="https://www.linkedin.com/company/national-centre-for-madium-range-weather-forecasting-mncmrw-moes/" role="button"><i class="fab fa-linkedin-in"></i></a>
+				<!-- Github -->
+				<a class="btn btn-primary btn-floating m-1 rounded-circle" style="background-color: #414141;" href="https://github.com/Islomdev16" role="button"><i class="fab fa-github"></i></a>
+			  </section>
+
+			  <section class="mb-4">
+				<p>
+				  The <span class="text-danger">W</span><i class="text-light">eather</i> <span class="text-info">I</span><span class="text-light">nfo </span>
+				  site is aimed to help all people around the world to know the forecast about weather. <br>
+				   There are all cities and states weather info that you can find here. And actually we are <br> very
+				   glad to you if we can help you a bit more 
+				   with forecasting.
+				</p>
+			  </section>
+
+			  <section class="">
+				<div class="row">
+				  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 class="text-uppercase"><a href="{% url 'index' %}" class="text-light">HOME</a></h5>
+				  </div>
+
+                  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 class="text-uppercase"><a href="{% url 'about' %}" class="text-light">About</a></h5>
+				  </div>
+
+				  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 class="text-uppercase"><a href="{% url 'news' %}" class="text-light">NEWS</a></h5>
+				  </div>
+
+				  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 class="text-uppercase"><a href="{% url 'info' %}" class="text-light">INFO</a></h5>
+				  </div>
+				</div>
+			  </section>
+			</div><br>
+
+			<!-- Copyright -->
+			<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+			  © 2021 Copyright:
+			  <a class="text-white" href="https://weather.com/" style="margin-left: 5px;">Weather.com</a>
+			  <a class="text-white" href="https://sports.com/" style="margin-left: 5px;">SportsDev.com</a>
+			  <br><br>
+			  	<div class="d-flex justify-content-start m-1">
+					<i class="fas fa-cloud" style="margin-left: 2px;"></i>
+      				<i class="fas fa-cloud-sun-rain" style="margin-left: 2px;"></i>
+					<i class="fas fa-cloud-showers-heavy" style="margin-left: 2px;"></i>
+					<i class="fas fa-snowflake" style="margin-left: 2px;"></i>
+					<i class="fas fa-cloud-meatball" style="margin-left: 2px;"></i>
+					<i class="fas fa-wind" style="margin-left: 2px;"></i>
+					<i class="fas fa-cloud-sun" style="margin-left: 2px;"></i>
+				</div>
+			  	<div class="d-flex justify-content-end" style="margin-top: -25px;">
+				  <span class="text-danger">W</span><i class="text-light">eather</i> <span class="text-info">I</span><span class="text-light">nfo: </span><u class="text-success" style="margin-left: 5px;">ISLOM ABDURAHMONOV SHAVKATOVICH</u>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+</body>
+</html>

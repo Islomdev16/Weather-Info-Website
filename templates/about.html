@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Info</title>
+    <link rel="icon" href="https://campeasy.com/wp-content/uploads/2020/03/weather-monitor.png">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+	<link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/body.css' %}">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+</head>
+<body>
+
+    <div class="container mt-1">
+        <i class="fas fa-cloud" style="font-size: large;"></i>
+        <i class="fas fa-cloud-sun-rain" style="font-size: large;"></i>
+        <i class="fas fa-cloud-showers-heavy" style="font-size: large;"></i>
+        <i class="fas fa-snowflake" style="font-size: large;"></i>
+        <i class="fas fa-cloud-meatball" style="font-size: large;"></i>
+        <i class="fas fa-wind" style="font-size: large;"></i>
+        <i class="fas fa-cloud-sun" style="font-size: large;"></i>
+        <i class="fas fa-poo-storm" style="font-size: large;"></i>
+        <i class="fas fa-sun" style="font-size: large;"></i>
+        <i class="fas fa-cloud-moon" style="font-size: large;"></i>
+        <i class="fas fa-smog" style="font-size: large;"></i>
+        <i class="fas fa-rainbow" style="font-size: large;"></i>
+        <i class="fas fa-temperature-high" style="font-size: large;"></i>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container justify-content-center">
+            <button class="invisible btn btn-light">Disabled</button>
+            <a class="navbar-brand me-2" style="margin-left: -5%; font-size: x-large;" href="{% url 'index' %}"><span class="text-danger">W</span><i class="text-light">eather</i> <span class="text-info">I</span><span class="text-light">nfo</span></a>
+
+            <button class="invisible btn btn-light">Disabled</button>
+            <form action="{% url 'search_info' %}" method="POST">
+                {% csrf_token %}
+                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                <input type="text" id="Form_Search" name="search_info" value="" class="border border-info border-2" style="width: 290px;" placeholder="Search for climate news from about page" role="searchbox" autocomplete="off">
+                <input type="submit" id="Form_Go" class="btn btn-block btn-outline-info" value="🔍">
+            </form>
+
+            <ul class="nav justify-content-center" style="margin-left: 8%;">
+              <li class="nav-item d-flex">
+                <i class="fas fa-home-lg-alt text-light" style="margin-top: 12px;"></i>
+                <a class="nav-link text-light active" style="font-size: larger;" aria-current="page" href="{% url 'index' %}">HOME</a>
+              </li>
+              <li class="nav-item d-flex">
+                <i class="fas fa-user-circle text-light" style="margin-top: 10px;font-size: large;"></i>
+                <a class="nav-link text-light" style="font-size: larger;" href="{% url 'about' %}">ABOUT</a>
+              </li>
+              <li class="nav-item d-flex">
+                <i class="fas fa-info-circle text-light" style="margin-top: 10px;font-size: 18px;"></i>
+                <a class="nav-link text-light" style="font-size: larger;" href="{% url 'news' %}">NEWS</a>
+              </li>
+              <li class="nav-item d-flex">
+                <i class="fas fa-newspaper text-light" style="margin-top: 10px;font-size: large;"></i>
+                <a class="nav-link text-light" style="font-size: larger;" href="{% url 'info' %}">INFO</a>
+              </li>
+              <li class="nav-item d-flex">
+                <i class="fas fa-file-user text-light" style="margin-top: 10px;font-size: large;"></i>
+                <a class="nav-link text-danger" style="font-size: larger;" href="https://islom-dev.netlify.app/" tabindex="-1" aria-disabled="true">ISLOM DEV</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+    <div class="container p-3">
+        <div class="text-center text-lg-center">
+            <h1 class="font-weight-bold">About Weather Arti<span class="text-danger">cle</span></h1>
+        </div>
+        <hr class="text-info"/>
+  </div>
+
+    <section class="py-5 container" style="margin-top: -75px">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h2 class="font-effect-outline">What Is Weather?</h2>
+                        <p class="lead">Rain and dull clouds, windy blue skies, cold snow, and sticky heat are very different conditions, yet they are all weather. Weather is the mix of events that happen each day in our atmosphere. Weather is different in different parts of the world and changes over minutes, hours, days and weeks. Most weather happens in the troposphere, the part of Earth’s atmosphere that is closest to the ground.</p>
+                        <h2 class="font-effect-outline">Air Pressure and Weather</h2>
+                        <p class="lead">The weather events happening in an area are controlled by changes in air pressure. Air pressure is caused by the weight of the huge numbers of air molecules that make up the atmosphere. Typically, when air pressure is high there skies are clear and blue. The high pressure causes air to flow down and fan out when it gets near the ground, preventing clouds from forming. When air pressure is low, air flows together and then upward where it converges, rising, cooling, and forming clouds. Remember to bring an umbrella with you on low pressure days because those clouds might cause rain or other types of precipitation.</p>
+                        <center>
+                            <video width="420" height="240" controls style="margin-top: 1%; margin-bottom: 2%">
+                            <source src="{% static 'images/weat1.mp4' %}" type="video/mp4">
+                            <source src="movie.ogg" type="video/ogg">
+                        </video>
+                        <video width="420" height="240" controls style="margin-top: 1%; margin-bottom: 2%; margin-left: 1%">
+                            <source src="{% static 'images/weat2.mp4' %}" type="video/mp4">
+                            <source src="movie.ogg" type="video/ogg">
+                        </video>
+                        <video width="420" height="240" controls style="margin-top: 1%; margin-bottom: 2%">
+                            <source src="{% static 'images/weat3.mp4' %}" type="video/mp4">
+                            <source src="movie.ogg" type="video/ogg">
+                        </video>
+                            <video width="420" height="240" controls style="margin-top: 1%; margin-bottom: 2%;margin-left: 1%">
+                                <source src="{% static 'images/weat4.mp4' %}" type="video/mp4">
+                                <source src="movie.ogg" type="video/ogg">
+                            </video>
+                        </center>
+                        <h2 class="font-effect-outline">Predicting Weather</h2>
+                        <p class="lead">Meteorologists develop local or regional weather forecasts including predictions for several days into the future. The best forecasts take into account the weather events that are happening over a broad region. Knowing where storms are now can help forecasters predict where storms will be tomorrow and the next day. Technology, such as weather satellites and Doppler radar, helps the process of looking over a large area, as does the network of weather observations.
+                            The chaotic nature of the atmosphere means that it will probably always be impossible to predict the weather more than two weeks ahead; however, new technologies combined with more traditional methods are allowing forecasters to develop better and more complete forecasts.</p>
+                        <h2 class="font-effect-outline">Weather and Climate</h2>
+                        <p class="lead">The average weather pattern in a place over several decades is called climate. Different regions have different regional climates. For example, the climate of Antarctica is quite different than the climate of a tropical island. Global climate refers to the average of all regional climates. As global climate changes, weather patterns are expected to change as well. While it is impossible to say whether a particular day’s weather was affected by climate change, it is possible to predict how patterns might change.
+                            For example, scientists predict more severe weather events as climate warms. Also, they predict more hot summer days and fewer extreme cold winter days. That doesn’t mean that there will be no more winter weather, in fact, large snowstorms might even be more likely in some areas as less cold air is able to carry more water with which to make snowflakes.
+                            Weather is also affected by climate events like El Nino and La Nina (together known as ENSO). Climate events like these affect the weather in many areas of the world causing extreme events like storms and droughts.</p>
+                        <p class="p-4 text-light h5" style="margin-bottom: -4%; background-color: #464343; border: 5px solid lightcoral; border-radius: 10px"><b class="h3 text-danger">❕<u>Important</u><span class="text-light"> :</span></b><br><br>Weather is the mix of events that happen each day in our atmosphere. Weather is different in different parts of the world and changes over minutes, hours, days and weeks. Most weather happens in the troposphere, the part of Earth’s atmosphere that is closest to the ground.</p> <br><br><br>
+                        <h2 class="font-effect-outline">What is Climate in general?</h2>
+                        <p class="lead">The climate where you live is called regional climate. It is the average weather in a place over more than thirty years. To describe the regional climate of a place, people often tell what the temperatures are like over the seasons, how windy it is, and how much rain or snow falls. The climate of a region depends on many factors including the amount of sunlight it receives, its height above sea level, the shape of the land, and how close it is to oceans. Since the equator receives more sunlight than the poles, climate varies depending on its distance from the equator.However, we can also think about the climate of an entire planet. Global climate is a description of the climate of a planet as a whole, with all the regional differences averaged. The climate where you live is called regional climate. Overall, global climate depends on the amount of energy received by the Sun and the amount of energy that is trapped in the system. These amounts are different for different planets. Scientists who study Earth's climate and climate change study the factors that affect the climate of our whole planet.
+                            While the weather can change in just a few hours, climate changes over longer timeframes. Climate events, like El Niño, happen over several years, small-scale fluctuations happen over decades, and larger climate changes happen over hundreds and thousands of years. Today, climates are changing. Our Earth is warming more quickly than it has in the past according to the research of scientists. Hot summer days may be quite typical of climates in many regions of the world, but global warming is causing Earth's average global temperature to increase. The amount of solar radiation, the chemistry of the atmosphere, clouds, and the biosphere all affect Earth's climate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <center class="bg-image-full container"><img src="{% static 'images/wea1.jpg' %}" style="margin-left: 5%; margin-top: -4%" width="90%" height="550px"></center><br>
+
+<!--    2 - section about weather information for about page-->
+        <section class="py-5 container" style="margin-top: -75px">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h2 class="font-effect-outline">Weather Fronts</h2>
+                        <p class="lead">When a front passes over an area, it means a change in the weather. Many fronts cause weather events such as rain, thunderstorms, gusty winds, and tornadoes. At a cold front, there may be dramatic thunderstorms. At a warm front, there may be low stratus clouds. Usually, the skies clear once the front has passed. A weather front is a transition zone between two different air masses at the Earth's surface. Each air mass has unique temperature and humidity characteristics. Often there is turbulence at a front, which is the borderline where two different air masses come together. The turbulence can cause clouds and storms.
+                            Instead of causing clouds and storms, some fronts just cause a change in temperature. However, some storm fronts start Earth's largest storms. Tropical waves are fronts that develop in the tropical Atlantic Ocean off the coast of Africa. These fronts can develop into tropical storms or hurricanes if conditions allow.
+                            Fronts move across the Earth's surface over multiple days. The direction of movement is often guided by high winds, such as Jet Streams.  Landforms like mountains can also change the path of a front.
+                            There are four different types of weather fronts: cold fronts, warm fronts, stationary fronts, and occluded fronts.</p>
+                        <h2 class="font-effect-outline">Cold Front</h2>
+                        <p class="lead">A cold front forms when a cold air mass pushes into a warmer air mass. Cold fronts can produce dramatic changes in the weather. They move fast, up to twice as fast as a warm front. As a cold front moves into an area, the heavier (more dense) cool air pushes under the lighter (less dense) warm air, causing it to rise up into the troposphere. Lifted warm air ahead of the front produces cumulus or cumulonimbus clouds and thunderstorms.
+                            As the cold front passes, winds become gusty. There is a sudden drop in temperature, and also heavy rain, sometimes with hail, thunder, and lightning. Atmospheric pressure changes from falling to rising at the front. After a cold front moves through your area, you may notice that the temperature is cooler, the rain has stopped, and the cumulus clouds are replaced by stratus and stratocumulus clouds or clear skies.
+                            On weather maps, a cold front is represented by a solid blue line with filled-in triangles along it, like in the map. The triangles are like arrowheads pointing in the direction that the front is moving. Notice on the map that temperatures at the ground level change from warm to cold as you cross the front line.</p><br>
+                        <p class="p-3 text-light h5" style="margin-bottom: -4%; background-color: #464343; border: 5px solid lightcoral; border-radius: 10px"><b class="h3 text-danger">❕<u>Important</u><span class="text-light"> :</span></b><br><br> News media outlets (including newspapers, T.V. news, websites, blogs) carry stories about weather for several reasons. Of course, weather forecasts for the next several days are a staple in news (everyone wants to know if they should bring an umbrella!) but when there is a severe weather event, news outlets carry the story with different sorts of coverage. There are forecast reports, stories about how communities are preparing for the event and the devastation that the event caused, and editorials about the storm.</p><br><br><br><br>
+                        <h2 class="font-effect-outline">Warm Front</h2>
+                        <p class="lead">A warm front forms when a warm air mass pushes into a cooler air mass, shown in the image to the right (A). Warm fronts often bring stormy weather as the warm air mass at the surface rises above the cool air mass, making clouds and storms. Warm fronts move more slowly than cold fronts because it is more difficult for the warm air to push the cold, dense air across the Earth's surface. Warm fronts often form on the east side of low-pressure systems where warmer air from the south is pushed north.
+                            You will often see high clouds like cirrus, cirrostratus, and middle clouds like altostratus ahead of a warm front. These clouds form in the warm air that is high above the cool air. As the front passes over an area, the clouds become lower, and rain is likely. There can be thunderstorms around the warm front if the air is unstable.
+                            On weather maps, the surface location of a warm front is represented by a solid red line with red, filled-in semicircles along it, like in the map on the right (B). The semicircles indicate the direction that the front is moving. They are on the side of the line where the front is moving. Notice on the map that temperatures at ground level are cooler in front of the front than behind it.</p><br><br><br>
+                            <center class="bg-image-full container"><img src="{% static 'images/weat2.jpg' %}" style="margin-left: 5%; margin-top: -5%" width="90%" height="550px"></center><br>
+                        <p class="lead" style="margin-bottom: -5%">A stationary front forms when a cold front or warm front stops moving. This happens when two masses of air are pushing against each other, but neither is powerful enough to move the other. Winds blowing parallel to the front instead of perpendicular can help it stay in place.
+                        A stationary front may stay put for days. If the wind direction changes, the front will start moving again, becoming either a cold or warm front. Or the front may break apart.
+                        Because a stationary front marks the boundary between two air masses, there are often differences in air temperature and wind on opposite sides of it. The weather is often cloudy along a stationary front, and rain or snow often falls, especially if the front is in an area of low atmospheric pressure.
+                        On a weather map, a stationary front is shown as alternating red semicircles and blue triangles. Notice how the blue triangles point in one direction, and the red semicircles point in the opposite direction..</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <div class="container">
+        {% include 'footer.html' %}
+    </div>
+
+
+    <!-- Javascript online code section -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
